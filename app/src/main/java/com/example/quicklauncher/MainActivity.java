@@ -7,12 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.net.URL;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*
+            FOR THE CALCULATOR
+            FOR OEPNING AN APP FROM THE APP ITSELF
+
+         */
         //if the calculator button is pressed then perform the following function
         //attempts to access an activity inside the app
         Button Calculator = (Button) findViewById(R.id.Calculator);
@@ -26,31 +33,43 @@ public class MainActivity extends AppCompatActivity {
         });
         //if the google button id pressed then perform the following function
         //attempts to access an activity outside the app
+
+        //GOOGLE DOCS
         Button Docs = findViewById(R.id.GoogleDocs);
-        Docs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String DocsUrl = "https://www.google.com/docs/about/";
-                Uri WebAdress = Uri.parse(DocsUrl);
-                Intent gotoGoogle = new Intent(Intent.ACTION_VIEW,WebAdress);
-                startActivity(gotoGoogle);
-            }
-        });
+        String DocsUrl = "https://www.google.com/docs/about/";
+        buttonFunction(Docs,DocsUrl);
+        //GOOGLE DRIVE
+        Button drive = findViewById(R.id.GoogleDrive);
+        String DriveUrl = "https://www.google.com/drive/";
+        buttonFunction(drive,DriveUrl);
+        //GOOGLE SLIDES
+        Button slides = findViewById(R.id.GoogleSlides);
+        String slidesUrl = "https://www.google.ca/slides/about/";
+        buttonFunction(slides,slidesUrl);
+        //KISSANIME
+        Button kissanime = findViewById(R.id.Kissanime);
+        String kissanimeUrl = "https://kissanime.ru/";
+        buttonFunction(kissanime,kissanimeUrl);
+        //KISSMANGA
+        Button kissManga = findViewById(R.id.KissManga);
+        String KissMangaUrl = "https://kissmanga.com/";
+        buttonFunction(kissManga,KissMangaUrl);
+    }
 
-        Button Drive = findViewById(R.id.GoogleDrive);
-        Drive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String DriveUrl = "https://www.google.com/drive/";
-                Uri WebAdress = Uri.parse(DriveUrl);
-                Intent gotoGoogle = new Intent(Intent.ACTION_VIEW,WebAdress);
-                //if there is an app which can open this activity (web adress), then allow that app to open this activity
-                //in our case it is google chrome
-                if(gotoGoogle.resolveActivity(getPackageManager()) != null)
-                startActivity(gotoGoogle);
-            }
-
-        });
-
+    //function for searching web adress, if an app is available to do it
+    void buttonFunction(Button button, final String url){
+    button.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+//            String URl = url;
+            String buttonUrl = url;
+            Uri webAdress = Uri.parse(buttonUrl);
+            Intent GotoAdress = new Intent(Intent.ACTION_VIEW,webAdress);
+            //asking the system, is any ap is available which can opne up this app
+            //if it is not equal to null, then opne the web adress through that app
+            if(GotoAdress.resolveActivity(getPackageManager()) != null)
+                startActivity(GotoAdress);
+        }
+    });
     }
 }
