@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent secondActivity = new Intent(getApplicationContext(),SecondActivity.class);
                 //how to shift the screen to the other second activity
+
                 startActivity(secondActivity);
 
             }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_green_dark"
     tools:context=".MainActivity">
 
     <Button
@@ -12,6 +13,7 @@
         android:layout_height="68dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@android:color/holo_green_light"
         android:text="Calculator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,6 +30,7 @@
         android:layout_marginTop="132dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@android:color/holo_green_light"
         android:text="Google"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +48,7 @@
         android:text="Hello! Welcome to the quick launcher"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@android:color/background_light"
         android:textSize="30sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
