@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         });
         //if the google button id pressed then perform the following function
         //attempts to access an activity outside the app
-        Button google = findViewById(R.id.Search);
+        Button google = findViewById(R.id.GoogleDocs);
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
