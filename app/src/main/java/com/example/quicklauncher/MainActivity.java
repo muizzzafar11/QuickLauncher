@@ -26,15 +26,30 @@ public class MainActivity extends AppCompatActivity {
         });
         //if the google button id pressed then perform the following function
         //attempts to access an activity outside the app
-        Button google = findViewById(R.id.GoogleDocs);
-        google.setOnClickListener(new View.OnClickListener() {
+        Button Docs = findViewById(R.id.GoogleDocs);
+        Docs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String GoogleUrl = "https://www.google.com/docs/about/";
-                Uri WebAdress = Uri.parse(GoogleUrl);
+                String DocsUrl = "https://www.google.com/docs/about/";
+                Uri WebAdress = Uri.parse(DocsUrl);
                 Intent gotoGoogle = new Intent(Intent.ACTION_VIEW,WebAdress);
                 startActivity(gotoGoogle);
             }
+        });
+
+        Button Drive = findViewById(R.id.GoogleDrive);
+        Drive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String DriveUrl = "https://www.google.com/drive/";
+                Uri WebAdress = Uri.parse(DriveUrl);
+                Intent gotoGoogle = new Intent(Intent.ACTION_VIEW,WebAdress);
+                //if there is an app which can open this activity (web adress), then allow that app to open this activity
+                //in our case it is google chrome
+                if(gotoGoogle.resolveActivity(getPackageManager()) != null)
+                startActivity(gotoGoogle);
+            }
+
         });
 
     }
