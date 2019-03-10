@@ -54,7 +54,12 @@ public class MainActivity extends AppCompatActivity {
         Button kissManga = findViewById(R.id.KissManga);
         String KissMangaUrl = "https://kissmanga.com/";
         buttonFunction(kissManga,KissMangaUrl);
+
+
+
     }
+
+
 
     //function for searching web adress, if an app is available to do it
     void buttonFunction(Button button, final String url){
@@ -71,5 +76,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(GotoAdress);
         }
     });
+    }
+    //for opening an installed app from with in your app
+    //opening maps
+    public void OpenMaps(View view){
+        
+            Intent OpenMaps = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.maps");
+            startActivity(OpenMaps);
     }
 }
