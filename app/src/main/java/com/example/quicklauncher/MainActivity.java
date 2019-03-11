@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         buttonFunction(kissManga, KissMangaUrl);
         //Facebook
         Button Facebook = findViewById(R.id.Facebook);
-       // String FacebookUrl = "https://www.facebook.com/";
+        String FacebookUrl = "https://www.facebook.com/";
         String FacebookApp = "com.facebook.katana";
-        buttonFunction2(Facebook, FacebookApp);
+        buttonFunction2(Facebook, FacebookUrl, FacebookApp);
 
 
     }
@@ -81,42 +81,28 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    void buttonFunction2(Button button, final String PackageName) {
+    void buttonFunction2(Button button, final String url, final String PackageName) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //for declaring the webAddress
-                //Uri WebAdress = Uri.parse(url);
-                //for creating an intent of the web address
-                //Intent GototApp = new Intent(Intent.ACTION_VIEW, WebAdress);
-                //for creating an intent of the app
+
                 Intent openApp = getPackageManager().getLaunchIntentForPackage("" + PackageName);
                 //checking if the app is available or not
+                //for declaring the webAddress
+                Uri WebAdress = Uri.parse(url);
+                //for creating an intent of the web address
+                Intent GototApp = new Intent(Intent.ACTION_VIEW, WebAdress);
+                //for creating an intent of the app
                 if (openApp.resolveActivity(getPackageManager()) != null)
                     startActivity(openApp);
-                    //saying that if the app isn't available then open the web address
-              //  else if (openApp.resolveActivity(getPackageManager()) == null)
-                //    startActivity(GototApp);
+
+                else {
+                    startActivity(GototApp);
+                }
+                //saying that if the app isn't available then open the web address
+                //  else if (openApp.resolveActivity(getPackageManager()) == null)
+                //
             }
         });
     }
 }
-//for opening an installed app from with in your app
-//opening maps
-//  public void OpenMaps(View view){
-//
-//            Intent OpenMaps = getPackageManager().getLaunchIntentForPackage("com.facebook.katana");
-//            if(OpenMaps.resolveActivity(getPackageManager()) != null) {
-//                startActivity(OpenMaps);
-//            }
-//            else if (OpenMaps.resolveActivity(getPackageManager()) == null){
-//                String mapsUrl = "https://www.facebook.com/";
-//                Uri MapsAdress = Uri.parse(mapsUrl);
-//                Intent gotoMaps = new Intent(Intent.ACTION_VIEW,MapsAdress);
-//                if(gotoMaps.resolveActivity(getPackageManager()) != null)
-//                    startActivity(gotoMaps);
-//                //https://www.facebook.com/
-
-
-
-
