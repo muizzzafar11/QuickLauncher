@@ -15,7 +15,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        Button Adder =  findViewById(R.id.Adder);
+        Button Adder = findViewById(R.id.Adder);
         try {
             Adder.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -29,8 +29,7 @@ public class SecondActivity extends AppCompatActivity {
                     Answer.setText(sum + "");
                 }
             });
-        }
-        catch(Exception e){
+        } catch (Exception e) {
 
         }
     }
