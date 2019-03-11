@@ -37,15 +37,18 @@ public class MainActivity extends AppCompatActivity {
         //GOOGLE DOCS
         Button Docs = findViewById(R.id.GoogleDocs);
         String DocsUrl = "https://www.google.com/docs/about/";
-        buttonFunction(Docs, DocsUrl);
+        String DocsApp = "com.google.android.apps.docs.editors.docs";
+        buttonFunction2(Docs, DocsUrl, DocsApp);
         //GOOGLE DRIVE
         Button drive = findViewById(R.id.GoogleDrive);
         String DriveUrl = "https://www.google.com/drive/";
-        buttonFunction(drive, DriveUrl);
+        String DriveApp = "com.google.android.apps.docs";
+        buttonFunction2(drive, DriveUrl, DriveApp);
         //GOOGLE SLIDES
         Button slides = findViewById(R.id.GoogleSlides);
         String slidesUrl = "https://www.google.ca/slides/about/";
-        buttonFunction(slides, slidesUrl);
+        String SlidesApp = "com.google.android.apps.docs.editors.slides";
+        buttonFunction2(slides, slidesUrl,SlidesApp);
         //KISSANIME
         Button kissanime = findViewById(R.id.Kissanime);
         String kissanimeUrl = "https://kissanime.ru/";
@@ -59,8 +62,11 @@ public class MainActivity extends AppCompatActivity {
         String FacebookUrl = "https://www.facebook.com/";
         String FacebookApp = "com.facebook.katana";
         buttonFunction2(Facebook, FacebookUrl, FacebookApp);
-
-
+        //google classroom
+        Button Classroom = findViewById(R.id.Classroom);
+        String ClassroomUrl = "https://classroom.google.com/u/1/h";
+        String ClassroomApp = "com.google.android.apps.classroom";
+        buttonFunction2(Classroom,ClassroomUrl,ClassroomApp);
     }
 
 
@@ -85,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //order of placement of these lines matter
                 Intent openApp = getPackageManager().getLaunchIntentForPackage("" + PackageName);
                 //checking if the app is available or not
                 //for declaring the webAddress
